@@ -1,5 +1,5 @@
-#ifndef UTILS_H
-#define UTILS_H
+// #ifndef UTILS_H
+// #define UTILS_H
 
 #include <iostream>
 using namespace std;
@@ -37,4 +37,4 @@ int ievads(string t) {
   return a;
 }
 
-#endif
+// #endif

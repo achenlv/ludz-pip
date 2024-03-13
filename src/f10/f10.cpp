@@ -1,3 +1,14 @@
+/*******************************************
+Agris Pudāns, ap08426
+F10. Dots teksta fails f. Uzrakstīt programmu, kura atrod failā f visus vārdus, kas ir simetriski. 
+Izvadīt šos vārdus failā f1. Par vārdu uzskatīt patvaļīgu simbolu virkni, kas atdalīta ar tukšumiem 
+vai pieturas zīmēm (punkts, komats, apaļās iekavas, izsaukuma zīme, jautājuma zīme.) 
+Simetrisks ir vārds, kas no abām pusēm lasāms vienādi (aka, 1221). 
+Drīkst uzskatīt, ka vārda garums nepārsniedz 40.
+
+Programma izveidota: 2017/09/28
+*******************************************/
+
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -35,7 +46,8 @@ string stripped(const string& s) {
   return t;
 }
 
-// Atrod, vai vārds ir simetrisks, tar ir, no abām pusēm lasāms vienādi
+// Atrod, vai vārds ir simetrisks, tar ir, no abām pusēm lasāms vienādi.
+// Tiek rādīti tikai vārdi.
 bool palindroms(const string& s) {
   int left = 0;
   int right = s.length() - 1;
@@ -56,24 +68,22 @@ int main() {
 
   fstream fin;
   char c;
-  string nfails = "input.txt"; // noklusējuma fails
-  string fails;
+  string nfails = "input.txt";
+  string fails = "input.txt";
   string vards;
   string apstradats_vards;
 
   do {
-    cout << "Lūdzu ievadīt faila nosaukumu :";
-    cin >> fails;
-    // fails = nfails;
- 
-    fin.open(fails,ios::in);
+    cout << "Lūdzu saglabāt saturu failā input.txt!";
+
+    fin.open(fails, ios::in);
  
     // Nolasa katru faila vārdu kā mainīgo
     fin >> vards;
     while (fin) {
       fin >> vards;
       apstradats_vards = stripped(vards);
-      // Der tādi vārdi, kuru garums ir vismaz 2 simboli
+      // Der tādi vārdi, kuru garums ir vairāk nekā 2 simboli
       if ( apstradats_vards.length() > 2 and palindroms(apstradats_vards)) {
         cout << apstradats_vards << endl;
       }
