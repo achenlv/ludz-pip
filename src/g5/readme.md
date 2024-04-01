@@ -23,3 +23,5 @@ Sīkākas prasības sk. Laboratorijas darbu noteikumos.
 
 
 G5. Uzrakstīt funkciju, kas pieliek sarakstam jaunu elementu saraksta sākumā, ja elements ar tādu vērtību neeksistē.
+
+P.S. Var neprogrammēt patvaļīga elementa ievadīšanu. Var aizpildīt sarakstu ar nejaušiem skaitļiem, intervālā no 1 līdz 10. Lietotājs ievada tikai saraksta garumu.
