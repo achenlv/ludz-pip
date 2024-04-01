@@ -23,19 +23,12 @@ Programma izveidota: 01.04.2024.
 *******************************************/
 
 #include <iostream>
-#include <list>
 #include <memory>
-#include <cstdlib>
-#include <ctime>
 #include "include/utils.h"
 
-using namespace std;
-
-/* Dinamiskā atmiņas funkcijas */
-void push_front(Node*& head, int value);
+bool push_front(Node*& head, int value);
 void print_list(Node* head);
-/* STL  funkcijas */
-//
+
 
 struct Node {
   int value;
@@ -49,8 +42,6 @@ struct Node {
 
 int main() {
 
-  /* Dinamiskā atmiņas funkcijas */
-
   Node* head = nullptr;
   // Pievieno elementus sarakstam.
   push_front(head, 10);
@@ -60,29 +51,15 @@ int main() {
   // Izdrukā saraksta elementus.
   print_list(head);
 
-  /* STL  funkcijas */
-
-  list<int> my_list;
-
-  // Pievieno elementus sarakstam.
-  my_list.push_front(10);
-  my_list.push_front(20);
-  my_list.push_front(30);
-  my_list.push_front(20); // Šis elements tiks pievienots, jo STL::list atļauj dubultātus elementus.
-
-  // Izdrukā saraksta elementus.
-  for (int value : my_list) cout << value << " ";
-  cout << endl;
-
   return 0;
 }
 
-void push_front(Node*& head, int value) {
-  // Ja sarakstā jau ir elements ar doto vērtību, nepievieno jaunu.
+bool push_front(Node*& head, int value) {
+  // Pārbauda, vai sarakstā ir elements ar doto vērtību
   Node* current = head;
   while (current != nullptr) {
     if (current->value == value) {
-      return;
+      return false;
     }
     current = current->next;
   }
@@ -91,6 +68,8 @@ void push_front(Node*& head, int value) {
   Node* new_node = new Node(value);
   new_node->next = head;
   head = new_node;
+
+  return true;
 }
 
 void print_list(Node* head) {
