@@ -74,7 +74,7 @@ int main() {
   string apstradats_vards;
 
   do {
-    cout << "Lūdzu saglabāt saturu failā input.txt!";
+    cout << "Lūdzu saglabāt saturu failā input.txt!" << endl;
 
     fin.open(fails, ios::in);
  
